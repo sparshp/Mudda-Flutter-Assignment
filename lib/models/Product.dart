@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Product {
-  final String image, title, description;
-  final int price, size, id;
+  final String image, title, description, price,size;
+  final int  id;
   final Color color;
   Product({
     required this.id,
@@ -18,52 +18,52 @@ class Product {
 List<Product> products = [
   Product(
       id: 1,
-      title: "Office Code",
-      price: 234,
-      size: 12,
-      description: dummyText,
-      image: "assets/images/bag_1.png",
+      title: "Vegetable",
+      price: "234/kg",
+      size: "2km",
+      description: "Tomotos",
+      image: "assets/images/img1.png",
       color: Color(0xE26B2600)),
   Product(
       id: 2,
-      title: "Belt Bag",
-      price: 234,
-      size: 8,
-      description: dummyText,
-      image: "assets/images/bag_2.png",
+      title: "Grain",
+      price: "234/kg",
+      size: "8km",
+      description: "Wheat",
+      image: "assets/images/img2.png",
       color: Color(0xE26B2600)),
   Product(
       id: 3,
-      title: "Hang Top",
-      price: 234,
-      size: 10,
-      description: dummyText,
-      image: "assets/images/bag_3.png",
+      title: "Fruit",
+      price: "234/kg",
+      size: "10km",
+      description: "Grapes",
+      image: "assets/images/img3.png",
       color: Color(0xE26B2600)),
   Product(
       id: 4,
-      title: "Old Fashion",
-      price: 234,
-      size: 11,
-      description: dummyText,
-      image: "assets/images/bag_4.png",
+      title: "Grain",
+      price: "234/kg",
+      size: "11km",
+      description: "Soyabean",
+      image: "assets/images/img4.png",
       color: Color(0xE26B2600)),
   Product(
       id: 5,
       title: "Office Code",
-      price: 234,
-      size: 12,
+      price: "234/kg",
+      size: "12km",
       description: dummyText,
-      image: "assets/images/bag_5.png",
+      image: "assets/images/img5.png",
       color: Color(0xE26B2600)),
   Product(
     id: 6,
     title: "Office Code",
-    price: 234,
-    size: 12,
+    price: "234/kg",
+    size: "12km",
     description: dummyText,
-    image: "assets/images/bag_6.png",
-    color: Color(0xE26B2600),
+    image: "assets/images/img6.png",
+    color: Colors.white,
   ),
 ];
 

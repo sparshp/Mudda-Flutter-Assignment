@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/Product.dart';
+import 'package:flutter_application_1/screens/Home/components/item_card.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -27,6 +29,29 @@ class Body extends StatelessWidget {
           ),
         ),
         Categories(),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: GridView.builder(
+                itemCount: products.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 3,
+                  crossAxisSpacing: 3,
+                  childAspectRatio: 0.75,
+                ),
+                itemBuilder: (context, index) => ItemCard(
+                      product: products[index],
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsScreen(
+                              product: products[index],
+                            ),
+                          )),
+                    )),
+          ),
+        )
       ],
     );
   }
@@ -38,12 +63,18 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> category = ["Crops ", "Agri inputs", "Seeds", "Equipment"];
+  List<String> category = [
+    "All items",
+    "Crops ",
+    "Agri inputs",
+    "Seeds",
+    "Equipment"
+  ];
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 20,
+        height: 40,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: category.length,
@@ -52,15 +83,39 @@ class _CategoriesState extends State<Categories> {
   }
 
   Widget buildCategory(int index) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child:Text(
+    // return Padding(
+    //   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+
+    //   child: Column(
+
+    //     children: <Widget>[
+    //       Text(
+    //         category[index],
+    //         style: const TextStyle(
+    //           fontWeight: FontWeight.bold,
+
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
+    return SizedBox(
+      width: 200.0,
+      height: 10.0,
+      // color: Colors.grey[200],
+      // child: new Image.asset('assets/icons/menu.png'),
+      child: Card(
+        color: selectedIndex == index
+            ? Colors.brown
+            : Color.fromARGB(255, 203, 204, 203),
+        child: Center(
+          child: Text(
             category[index],
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              backgroundColor: Colors.blue,
-            ),
+            style: TextStyle(color: Colors.white),
           ),
+          //Text
+        ), //Center
+      ),
     );
   }
 }
